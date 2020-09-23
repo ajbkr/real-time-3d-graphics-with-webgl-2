@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/png"
+      href="/common/images/favicon.png">
+    <style>
+canvas {
+  border: 5px dotted blue;
+}
+    </style>
+    <title>Real-Time 3D Graphics with WebGL2</title>
+  </head>
+  <body>
+    <canvas id="webgl-canvas" width="800" height="600">
+      <p>
+        Your browser does not support the HTML5 <tt>&lt;canvas%gt;</tt> element.
+      </p>
+    </canvas>
+    <script>
+'use strict'
+
+function init () {
+  const canvas = document.getElementById('webgl-canvas')
+
+  // Ensure we have a canvas
+  if (!canvas) {
+    console.error('Sorry! No HTML5 canvas was found on this page')
+    return
+  }
+
+  const gl = canvas.getContext('webgl2')
+
+  // Ensure we have a context
+  const message = gl
+    ? 'Hooray! You got a WebGL2 context'
+    : 'Sorry! WebGL is not available'
+
+  window.alert(message)
+}
+
+window.onload = init
+    </script>
+  </body>
+</html>
